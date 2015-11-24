@@ -1,0 +1,3 @@
+[submodule "docker-compose-kubernetes"]
+	path = docker-compose-kubernetes
+	url = https://github.com/vyshane/docker-compose-kubernetes

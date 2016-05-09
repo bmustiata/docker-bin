@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
+if [[ "$1" == "" ]]; then
+    CONTAINER_NAME=mysqld
+else # not [[ "$CONTAINER_NAME" == "" ]]
+    CONTAINER_NAME="$1"
+fi   # else [[ "$CONTAINER_NAME" == "" ]]
+
 docker run \
-    --name mysqld\
+    --name $CONTAINER_NAME\
     -e MYSQL_ROOT_PASSWORD='asd' \
     -v /etc/passwd:/etc/passwd:ro \
     -v /etc/group:/etc/group:ro \

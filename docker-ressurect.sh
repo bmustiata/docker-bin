@@ -18,7 +18,7 @@ fi # [[ "$COMMAND" == "" ]]
 
 IMAGE_FROM_DEAD_CONTAINER_ID=$(docker commit $DEAD_CONTAINER_ID)
 
-docker run --rm -it $IMAGE_FROM_DEAD_CONTAINER_ID $COMMAND
+docker run --rm --volumes-from=$DEAD_CONTAINER_ID --entrypoint="$COMMAND" -it $IMAGE_FROM_DEAD_CONTAINER_ID
 
 docker rmi $IMAGE_FROM_DEAD_CONTAINER_ID
 
